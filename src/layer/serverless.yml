@@ -1,0 +1,13 @@
+org: '1305137940'
+app: huiblog
+stage: dev
+component: layer
+name: huiblog-layer
+inputs:
+  name: huiblog-layer
+  region: ap-guangzhou
+  src:
+    src: ../node_modules
+    targetDir: /node_modules
+  runtimes:
+    - Nodejs12.16

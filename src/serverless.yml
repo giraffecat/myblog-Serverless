@@ -1,0 +1,31 @@
+component: http
+name: http-express-veg_DHubOx
+inputs:
+  src:
+    src: ./
+    exclude:
+      - .env
+  faas:
+    framework: express
+    name: '${name}'
+    runtime: Nodejs12.16
+    eip: false
+    timeout: 3
+    memorySize: 512
+    tags: []
+    environments: []
+    layers:
+      - name: '${output:${stage}:${app}:huiblog-layer.name}'
+        version: '${output:${stage}:${app}:huiblog-layer.version}'
+  apigw:
+    protocols:
+      - http
+      - https
+    timeout: 60
+    environment: release
+    customDomains: []
+  region: ap-guangzhou
+  isAutoCiDeploy: false
+org: '1305137940'
+app: huiblog
+stage: dev
